@@ -7,19 +7,39 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 Ms. Gabriel Williams is a botany professor at District College. One day, she asked her student Mickey to compute the average of all the plants with distinct heights in her greenhouse.
 
+
 Input: heights of trees below:
+
 `161 182 161 154 176 170 167 171 170 174`
 
 Output:
 `169.375`
 
+```var sum = Double()
+var setArray = [Double]()
+var treeSet: Set<Double> = [161, 182, 161, 154, 176, 170, 167, 171, 170, 174]
+setArray.append(contentsOf: treeSet)
+for i in setArray {
+sum += i
+}
+print(sum/Double(setArray.count))
+```
 
 ## Question 2
 
 Determine if a String is a pangram. A pangram is a string that contains every letter of the alphabet at least once.
 
  e.g `"The quick brown fox jumps over the lazy dog"` is a pangram
+ `var myString = ("The quick brown fox jumps over the lazy dog").lowercased()
+ var myABC = "abcdefghijklmnopqrstuvwxyz"
+ var mySet = Set(myString)
+ mySet.isSuperset(of: myABC)`
+ 
  e.g `"The quick brown fox jumped over the lazy dog"` is NOT a pangram
+ `var myString = ("The quick brown fox jumped over the lazy dog").lowercased()
+ var myABC = "abcdefghijklmnopqrstuvwxyz"
+ var mySet = Set(myString)
+ mySet.isSuperset(of: myABC)`
 
 
 ## Question 3
@@ -31,10 +51,26 @@ You are given an array `nums` representing the data status of the set S after th
  Example 1:
  Input: `nums = [1,2,2,4]`
  Output: `[2,3]`
+ ```
+ var nums = [1,2,2,4]
+ nums.count
+ var emptyArray = [Int]()
+ for i in 0..<nums.count {
+ if emptyArray.contains(i) {
+ nums.count + 1
+ }
+ else {
+ emptyArray.append(i+1)
+ }
+ 
+ }
+ print(emptyArray)
+```
 
  Example 2:
  Input: `nums = [1,1]`
  Output: `[1,2]`
+
 
  Example 3:
  Input: `nums = [2,2]`
@@ -45,11 +81,18 @@ You are given an array `nums` representing the data status of the set S after th
 
 Given the 4 arrays of Ints below, create a new array, sorted in ascending order, that contains all the values without duplicates.
 
-```swift
-let arr1 = [2, 4, 5, 6, 8, 10, 12]
+```let arr1 = [2, 4, 5, 6, 8, 10, 12]
 let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
+
+var mySet = Set(arr1)
+var mySet1 = Set(arr2)
+var mySet2 = Set(arr3)
+var mySet3 = Set(arr4)
+
+var myUnion = mySet.union(mySet1).union(mySet2).union(mySet3).sorted()
+
 ```
 
 
